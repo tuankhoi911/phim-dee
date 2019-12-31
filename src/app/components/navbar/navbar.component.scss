@@ -1,0 +1,122 @@
+$borderColor: #17a2b8;
+
+.navbar {
+  .container-fluid {
+    transition: all 0.3s ease-in-out;
+
+    &.pd-navbar-collapsed-animate {
+      transform: translateX(-80%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .pd-navbar-btn-sign-in {
+      width: 105px;
+      height: 33px;
+      border-radius: 5px;
+    }
+
+    .input-group {
+      border: 1px solid $borderColor;
+      border-radius: 5px;
+
+      .pd-navbar-search-input {
+        width: 0;
+        height: 31px;
+        transition: all 0.3s ease-in-out;
+
+        &.active {
+          width: 300px;
+        }
+
+        &:focus {
+          box-shadow: none;
+          border-color: $borderColor;
+        }
+      }
+    }
+
+    .navbar-toggler {
+      outline: none;
+      .bar {
+        width: 20px;
+        height: 3px;
+        background-color: white;
+        transition: all 0.5s;
+      }
+
+      &.animate {
+        .bar:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 5px);
+        }
+
+        .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .bar:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -5px);
+        }
+      }
+    }
+  }
+
+  .pd-navbar-menu-responsive {
+    top: 0;
+    right: 0;
+    background: #272424;
+    transform: skewX(0deg) translate(100%, 0);
+    transform-origin: top right;
+    transition: all 0.2s ease-in;
+    z-index: 1;
+
+    &.show {
+      transform: skewX(8deg) translate(0, 0);
+      ul li {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: all 0.3s ease-in 0s;
+      }
+
+      @for $i from 1 through 5 {
+        li:nth-child(#{$i}) {
+          transition-delay: 0.1s * ($i + 1) !important;
+        }
+      }
+    }
+
+    .pd-navbar-logo {
+      margin: 20px 35px 0 0;
+      transform: skewX(-8deg);
+    }
+
+    ul {
+      transform: skewX(-8deg);
+      right: 60px;
+      top: 90px;
+      width: 400px;
+      li {
+        opacity: 0;
+        transform: translate(0, 10px);
+        list-style: none;
+        font-family: impact;
+        line-height: 50px;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.animate .bar1 {
+  transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.animate .bar2 {
+  opacity: 0;
+}
+
+.animate .bar3 {
+  transform: rotate(45deg) translate(-5px, -5px);
+}

@@ -4,48 +4,49 @@
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#pd-navbar-collapse"
       aria-controls="pd-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"
       (click)="onCollapsedNavbar()" [class.animate]="isCollapsedAnimate">
-      <div class="bar my-1"></div>
-      <div class="bar my-1"></div>
-      <div class="bar my-1"></div>
+      <div class="bar bg-white my-1"></div>
+      <div class="bar bg-white my-1"></div>
+      <div class="bar bg-white my-1"></div>
     </button>
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto text-uppercase">
-        <li class="nav-item active">
+      <ul class="navbar-nav mr-auto text-uppercase font-weight-light">
+        <li class="nav-item pr-3 active">
           <a class="nav-link" href="#">Hot</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pr-3">
           <a class="nav-link" href="#">Movie</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pr-3">
           <a class="nav-link" href="#">TV Show</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pr-3">
           <a class="nav-link" href="#">Chart</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pr-3">
           <a class="nav-link" href="#">TV Series</a>
         </li>
       </ul>
       <form class="form-inline pd-navbar-search-form">
-        <div class="input-group mr-sm-3" [class.active]="!isShowSearchInput">
+        <div class="input-group mr-sm-3 rounded" [class.active]="!isShowSearchInput">
           <div class="btn input-group-text border-0 bg-transparent">
             <i class="fas fa-search text-white" aria-hidden="true" (click)="onShowSearchInput()"></i>
           </div>
-          <input type="text" class="form-control text-white bg-transparent border-0 p-0 pd-navbar-search-input"
+          <input type="text"
+            class="form-control text-white bg-transparent border-0 p-0 pd-navbar-search-input shadow-none"
             id="pd-navbar-search-input" [class.active]="isShowSearchInput">
         </div>
       </form>
-      <button class="btn btn-outline-info pd-navbar-btn-sign-in py-0" type="submit">Sign in</button>
+      <button class="btn btn-outline-info pd-navbar-btn-sign-in rounded px-4 py-0" type="submit">Sign in</button>
     </div>
   </div>
   <div class="pd-navbar-menu-responsive position-fixed h-100 w-75" id="pd-navbar-collapse">
     <img class="pd-navbar-logo float-right" src="./assets/images/logo.png" alt="Phimdee Logo" width="100">
     <ul class="text-uppercase position-fixed text-right">
-      <li><a href="#">Hot</a></li>
-      <li><a href="#">Movie</a></li>
-      <li><a href="#">TV Show</a></li>
-      <li><a href="#">Chart</a></li>
-      <li><a href="#">TV Series</a></li>
+      <li><a class="text-decoration-none text-white" href="#">Hot</a></li>
+      <li><a class="text-decoration-none text-white" href="#">Movie</a></li>
+      <li><a class="text-decoration-none text-white" href="#">TV Show</a></li>
+      <li><a class="text-decoration-none text-white" href="#">Chart</a></li>
+      <li><a class="text-decoration-none text-white" href="#">TV Series</a></li>
     </ul>
   </div>
 </nav>

@@ -10,14 +10,11 @@ $borderColor: #17a2b8;
     }
 
     .pd-navbar-btn-sign-in {
-      width: 105px;
       height: 33px;
-      border-radius: 5px;
     }
 
     .input-group {
       border: 1px solid $borderColor;
-      border-radius: 5px;
 
       .pd-navbar-search-input {
         width: 0;
@@ -27,11 +24,6 @@ $borderColor: #17a2b8;
         &.active {
           width: 300px;
         }
-
-        &:focus {
-          box-shadow: none;
-          border-color: $borderColor;
-        }
       }
     }
 
@@ -40,7 +32,6 @@ $borderColor: #17a2b8;
       .bar {
         width: 20px;
         height: 3px;
-        background-color: white;
         transition: all 0.5s;
       }
 
@@ -48,11 +39,9 @@ $borderColor: #17a2b8;
         .bar:nth-child(1) {
           transform: rotate(-45deg) translate(-5px, 5px);
         }
-
         .bar:nth-child(2) {
           opacity: 0;
         }
-
         .bar:nth-child(3) {
           transform: rotate(45deg) translate(-5px, -5px);
         }
@@ -76,7 +65,6 @@ $borderColor: #17a2b8;
         transform: translate(0, 0);
         transition: all 0.3s ease-in 0s;
       }
-
       @for $i from 1 through 5 {
         li:nth-child(#{$i}) {
           transition-delay: 0.1s * ($i + 1) !important;
@@ -100,23 +88,7 @@ $borderColor: #17a2b8;
         list-style: none;
         font-family: impact;
         line-height: 50px;
-        a {
-          color: white;
-          text-decoration: none;
-        }
       }
     }
   }
-}
-
-.animate .bar1 {
-  transform: rotate(-45deg) translate(-5px, 5px);
-}
-
-.animate .bar2 {
-  opacity: 0;
-}
-
-.animate .bar3 {
-  transform: rotate(45deg) translate(-5px, -5px);
 }

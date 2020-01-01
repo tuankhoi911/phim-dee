@@ -1,0 +1,21 @@
+<div class="pd-play bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8"></div>
+            <div class="col-lg-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 pd-server-choose mb-4">
+                            <button class="btn btn-phimdee text-white active py-0 px-4 mr-2">Server 0</button>
+                            <button class="btn btn-phimdee text-white py-0 px-4">Server 1</button>
+                        </div>
+                        <div class="col-lg-12  pd-episode-section">
+                            <app-episode-card *ngFor="let episode of listEpisodes" [episode]="episode">
+                            </app-episode-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

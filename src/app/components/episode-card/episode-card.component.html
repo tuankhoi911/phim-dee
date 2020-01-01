@@ -1,0 +1,20 @@
+<div class="pd-episode-card mb-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="pd-episode-thumbnail">
+                    <img class="w-100" [src]="episode?.thumbnail" alt="thumbnail">
+                    <span class="pd-episode-time text-white bg-dark position-absolute">
+                        {{episode?.time}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6 pr-0">
+                <div class="pd-episode-info text-white p-0">
+                    <h6 class="font-weight-bold text-uppercase m-0"> {{episode?.name}}</h6>
+                    <p style="-webkit-box-orient: vertical"  class="m-0 pd-text-line-clamp">Episode {{episode?.episode}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

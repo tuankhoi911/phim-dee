@@ -1,0 +1,17 @@
+.pd-episode-card {
+  cursor: pointer;
+  &:hover {
+    background: #505050;
+    transition-duration: .4s;
+  }
+  .pd-episode-time {
+    right: 5px;
+    bottom: 5px;
+  }
+
+  .pd-text-line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}

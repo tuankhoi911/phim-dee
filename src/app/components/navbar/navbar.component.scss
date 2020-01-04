@@ -1,12 +1,49 @@
-$borderColor: #17a2b8;
+$color: #fbbd61;
+$bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
 
 .navbar {
+  background-color: black;
+  transition: background-color 0.5s ease-in-out;
+
   .container-fluid {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.25s ease-in-out;
+
+    .nav-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+
+      .nav-link {
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      &:hover,
+      &.active {
+        &:after {
+          width: 100%;
+        }
+        .nav-link {
+          transition: all 0.25s ease-in-out;
+          color: $color !important;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $bgColor;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.25s ease-in-out;
+      }
+    }
 
     &.pd-navbar-collapsed-animate {
       transform: translateX(-80%);
-      transition: all 0.3s ease-in-out;
+      transition: all 0.25s ease-in-out;
     }
 
     .pd-navbar-btn-sign-in {
@@ -14,12 +51,13 @@ $borderColor: #17a2b8;
     }
 
     .input-group {
-      border: 1px solid $borderColor;
+      border: 1px solid $color;
+      border-radius: 50px;
 
       .pd-navbar-search-input {
         width: 0;
         height: 31px;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.25s ease-in-out;
 
         &.active {
           width: 300px;
@@ -33,6 +71,7 @@ $borderColor: #17a2b8;
         width: 20px;
         height: 3px;
         transition: all 0.5s;
+        background-color: $color;
       }
 
       &.animate {
@@ -63,7 +102,7 @@ $borderColor: #17a2b8;
       ul li {
         opacity: 1;
         transform: translate(0, 0);
-        transition: all 0.3s ease-in 0s;
+        transition: all 0.25s ease-in 0s;
       }
       @for $i from 1 through 5 {
         li:nth-child(#{$i}) {

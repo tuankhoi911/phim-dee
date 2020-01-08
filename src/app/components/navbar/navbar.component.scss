@@ -1,36 +1,66 @@
-$borderColor: #17a2b8;
+$color: #fbbd61;
+$bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
 
 .navbar {
+  background-color: black;
+  transition: background-color 0.5s ease-in-out;
+
   .container-fluid {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.25s ease-in-out;
+
+    .nav-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+
+      .nav-link {
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      &:hover,
+      &.active {
+        &:after {
+          width: 100%;
+        }
+        .nav-link {
+          transition: all 0.25s ease-in-out;
+          color: $color !important;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $bgColor;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.25s ease-in-out;
+      }
+    }
 
     &.pd-navbar-collapsed-animate {
       transform: translateX(-80%);
-      transition: all 0.3s ease-in-out;
+      transition: all 0.25s ease-in-out;
     }
 
     .pd-navbar-btn-sign-in {
-      width: 105px;
       height: 33px;
-      border-radius: 5px;
     }
 
     .input-group {
-      border: 1px solid $borderColor;
-      border-radius: 5px;
+      border: 1px solid $color;
+      border-radius: 50px;
 
       .pd-navbar-search-input {
         width: 0;
         height: 31px;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.25s ease-in-out;
 
         &.active {
           width: 300px;
-        }
-
-        &:focus {
-          box-shadow: none;
-          border-color: $borderColor;
         }
       }
     }
@@ -40,19 +70,17 @@ $borderColor: #17a2b8;
       .bar {
         width: 20px;
         height: 3px;
-        background-color: white;
         transition: all 0.5s;
+        background-color: $color;
       }
 
       &.animate {
         .bar:nth-child(1) {
           transform: rotate(-45deg) translate(-5px, 5px);
         }
-
         .bar:nth-child(2) {
           opacity: 0;
         }
-
         .bar:nth-child(3) {
           transform: rotate(45deg) translate(-5px, -5px);
         }
@@ -74,9 +102,8 @@ $borderColor: #17a2b8;
       ul li {
         opacity: 1;
         transform: translate(0, 0);
-        transition: all 0.3s ease-in 0s;
+        transition: all 0.25s ease-in 0s;
       }
-
       @for $i from 1 through 5 {
         li:nth-child(#{$i}) {
           transition-delay: 0.1s * ($i + 1) !important;
@@ -100,23 +127,7 @@ $borderColor: #17a2b8;
         list-style: none;
         font-family: impact;
         line-height: 50px;
-        a {
-          color: white;
-          text-decoration: none;
-        }
       }
     }
   }
-}
-
-.animate .bar1 {
-  transform: rotate(-45deg) translate(-5px, 5px);
-}
-
-.animate .bar2 {
-  opacity: 0;
-}
-
-.animate .bar3 {
-  transform: rotate(45deg) translate(-5px, -5px);
 }

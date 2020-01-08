@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 
 @Component({
   selector: "app-navbar",
@@ -8,6 +8,16 @@ import { Component, OnInit } from "@angular/core";
 export class NavbarComponent implements OnInit {
   isShowSearchInput = false;
   isCollapsedAnimate = false;
+  isTransparent = true;
+
+  @HostListener("window:scroll", ["$event"])
+  onScroll(event) {
+    if (this.isTransparent && window.scrollY > 40) {
+      this.isTransparent = false;
+    } else if (window.scrollY < 10) {
+      this.isTransparent = true;
+    }
+  }
 
   constructor() {}
 

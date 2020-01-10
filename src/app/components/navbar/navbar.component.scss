@@ -1,5 +1,5 @@
-$color: #fbbd61;
-$bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
+$color: #0093e9;
+$bgColor: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 
 .navbar {
   background-color: black;
@@ -13,7 +13,7 @@ $bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
       position: relative;
 
       .nav-link {
-        font-size: 14px;
+        font-size: 12px;
         letter-spacing: 3px;
       }
 
@@ -60,7 +60,7 @@ $bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
         transition: all 0.25s ease-in-out;
 
         &.active {
-          width: 300px;
+          width: 210px;
         }
       }
     }
@@ -92,42 +92,31 @@ $bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
     top: 0;
     right: 0;
     background: #272424;
-    transform: skewX(0deg) translate(100%, 0);
-    transform-origin: top right;
+    transform: translate(100%, 0);
     transition: all 0.2s ease-in;
     z-index: 1;
 
     &.show {
-      transform: skewX(8deg) translate(0, 0);
-      ul li {
+      transform: translate(0, 0);
+      li,
+      .pd-navbar-responsive-searchbar {
         opacity: 1;
         transform: translate(0, 0);
         transition: all 0.25s ease-in 0s;
+        transition-delay: 0.2s;
       }
       @for $i from 1 through 5 {
         li:nth-child(#{$i}) {
-          transition-delay: 0.1s * ($i + 1) !important;
+          transition-delay: 0.1s * ($i + 1);
         }
       }
     }
 
-    .pd-navbar-logo {
-      margin: 20px 35px 0 0;
-      transform: skewX(-8deg);
-    }
-
-    ul {
-      transform: skewX(-8deg);
-      right: 60px;
-      top: 90px;
-      width: 400px;
-      li {
-        opacity: 0;
-        transform: translate(0, 10px);
-        list-style: none;
-        font-family: impact;
-        line-height: 50px;
-      }
+    li,
+    .pd-navbar-responsive-searchbar {
+      opacity: 0;
+      transform: translate(0, 10px);
+      line-height: 50px;
     }
   }
 }

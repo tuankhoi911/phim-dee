@@ -1,8 +1,10 @@
+$color: #0093e9;
+
 .pd-footer-top {
   background: #101010;
 }
 .pd-footer-bottom {
-  background-color: #0396ff;
+  background-color: $color;
   .pd-footer-social-networks i {
     font-size: 22px;
     &:hover {

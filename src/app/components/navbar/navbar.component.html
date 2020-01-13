@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" (scroll)="onScroll($event)" [class.navbar-scroll]="isScroll">
-  <div class="container-fluid px-lg-3">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top px-xl-5 px-lg-3" (scroll)="onScroll($event)"
+  [class.navbar-scroll]="isScroll">
+  <div class="container-fluid px-0">
     <button class="navbar-toggler d-lg-none outline-none pl-0 border-0 z-index-10" type="button" data-toggle="collapse"
       data-target="#pd-navbar-collapse" aria-controls="pd-navbar-collapse" aria-expanded="false"
       aria-label="Toggle navigation" [class.animate]="isCollapsed" (click)="onCollapse()">
@@ -36,7 +37,8 @@
           <input (blur)="onBlurInput()" #inputSearch autocomplete="off" type="text" placeholder="Tìm kiếm"
             class="form-control bg-transparent text-white border-0 p-0 pd-navbar-search-input shadow-none"
             [class.active]="isShowSearchInput" [(ngModel)]="searchValue" name="search">
-          <div class="c-pointer input-group-text border-0 bg-transparent pd-navbar-btn-clear z-index-10 position-absolute"
+          <div
+            class="c-pointer input-group-text border-0 bg-transparent pd-navbar-btn-clear z-index-10 position-absolute"
             *ngIf="isShowSearchInput && searchValue != ''" (click)="onClearInput()">
             <i class="fas fa-times text-primary"></i>
           </div>
@@ -51,8 +53,8 @@
     <form class="form-inline float-right position-relative d-lg-none">
       <input type="text" class="form-control text-white border-0 bg-dark shadow-none " id="pd-input-responsive"
         placeholder="Tìm kiếm" name="search-mobile" [(ngModel)]="searchValue">
-      <div class="c-pointer input-group-text border-0 bg-transparent pd-navbar-btn-clear z-index-10 position-absolute" (click)="onClearInput()"
-        *ngIf="searchValue != ''">
+      <div class="c-pointer input-group-text border-0 bg-transparent pd-navbar-btn-clear z-index-10 position-absolute"
+        (click)="onClearInput()" *ngIf="searchValue != ''">
         <i class="fas fa-times text-primary"></i>
       </div>
     </form>

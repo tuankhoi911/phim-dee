@@ -1,133 +1,157 @@
-$color: #fbbd61;
-$bgColor: linear-gradient(to right, #ec7532 0%, #fbbd61 100%);
+@import "abstracts/variables.scss";
 
 .navbar {
-  background-color: black;
+  background-color: #000000bd !important;
   transition: background-color 0.5s ease-in-out;
 
-  .container-fluid {
-    transition: all 0.25s ease-in-out;
+  &.navbar-scroll {
+    background-color: $black !important;
+  }
 
-    .nav-item {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      position: relative;
-
-      .nav-link {
-        font-size: 14px;
-        letter-spacing: 3px;
-      }
-
-      &:hover,
-      &.active {
-        &:after {
-          width: 100%;
-        }
-        .nav-link {
-          transition: all 0.25s ease-in-out;
-          color: $color !important;
-        }
-      }
-
-      &:after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: $bgColor;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transition: all 0.25s ease-in-out;
-      }
+  .navbar-toggler {
+    .bar {
+      width: 20px;
+      height: 3px;
+      transition: $transition;
     }
 
-    &.pd-navbar-collapsed-animate {
-      transform: translateX(-80%);
-      transition: all 0.25s ease-in-out;
-    }
-
-    .pd-navbar-btn-sign-in {
-      height: 33px;
-    }
-
-    .input-group {
-      border: 1px solid $color;
-      border-radius: 50px;
-
-      .pd-navbar-search-input {
-        width: 0;
-        height: 31px;
-        transition: all 0.25s ease-in-out;
-
-        &.active {
-          width: 300px;
-        }
+    &.animate {
+      .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
       }
-    }
-
-    .navbar-toggler {
-      outline: none;
-      .bar {
-        width: 20px;
-        height: 3px;
-        transition: all 0.5s;
-        background-color: $color;
+      .bar:nth-child(2) {
+        opacity: 0;
       }
-
-      &.animate {
-        .bar:nth-child(1) {
-          transform: rotate(-45deg) translate(-5px, 5px);
-        }
-        .bar:nth-child(2) {
-          opacity: 0;
-        }
-        .bar:nth-child(3) {
-          transform: rotate(45deg) translate(-5px, -5px);
-        }
+      .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
       }
     }
   }
 
+  .nav-item {
+    position: relative;
+
+    .nav-link {
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    &:hover,
+    &.active {
+      &:after {
+        width: 100%;
+      }
+      .nav-link {
+        transition: $transition;
+        color: $primary !important;
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      position: absolute;
+      bottom: -9px;
+      left: 0;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 3px;
+      background: $primary;
+      position: absolute;
+      bottom: -9px;
+      left: 0;
+      transition: $transition;
+    }
+  }
+
+  .input-group {
+    border-radius: 50px;
+    border: 1px solid transparent;
+    transition: $transition;
+
+    &.active {
+      border-color: $primary;
+      background-color: #00000080 !important;
+      box-shadow: 0 0 0 2px rgba(82, 88, 93, 0.5);
+    }
+
+    .pd-navbar-search-input {
+      width: 0;
+      height: 31px;
+      transition: $transition;
+
+      &.active {
+        width: 180px;
+      }
+    }
+  }
+
+  .pd-navbar-btn-sign-in {
+    height: 33px;
+  }
+
   .pd-navbar-menu-responsive {
     top: 0;
-    right: 0;
+    left: 0;
+    width: 300px;
     background: #272424;
-    transform: skewX(0deg) translate(100%, 0);
-    transform-origin: top right;
-    transition: all 0.2s ease-in;
-    z-index: 1;
+    transform: skewX(0deg) translate(-100%, 0);
+    transform-origin: top left;
+    transition: $transition;
 
     &.show {
-      transform: skewX(8deg) translate(0, 0);
-      ul li {
-        opacity: 1;
+      transform: skewX(-5deg) translate(0, 0);
+      li {
+        opacity: 1 !important;
         transform: translate(0, 0);
-        transition: all 0.25s ease-in 0s;
+        transition: $transition;
+        transition-delay: 0.2s;
       }
       @for $i from 1 through 5 {
         li:nth-child(#{$i}) {
-          transition-delay: 0.1s * ($i + 1) !important;
+          transition-delay: 0.1s * ($i + 1);
         }
       }
     }
 
-    .pd-navbar-logo {
-      margin: 20px 35px 0 0;
-      transform: skewX(-8deg);
-    }
-
     ul {
-      transform: skewX(-8deg);
-      right: 60px;
+      transform: skewX(5deg);
+      left: 60px;
       top: 90px;
       width: 400px;
       li {
         opacity: 0;
         transform: translate(0, 10px);
-        list-style: none;
-        font-family: impact;
         line-height: 50px;
       }
     }
+  }
+
+  #pd-input-responsive {
+    height: 30px;
+    width: 250px;
+  }
+}
+
+.pd-navbar-btn-clear {
+  right: 0;
+  top: 2px;
+}
+
+// Media
+@media only screen and (max-width: 575px) {
+  .navbar-brand {
+    width: 90px;
+  }
+
+  #pd-input-responsive {
+    width: 140px !important;
   }
 }

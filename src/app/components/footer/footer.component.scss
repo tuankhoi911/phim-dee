@@ -1,10 +1,7 @@
-$color: #0093e9;
+@import "abstracts/variables.scss";
 
-.pd-footer-top {
-  background: #101010;
-}
 .pd-footer-bottom {
-  background-color: $color;
+  background-color: $primary;
   .pd-footer-social-networks i {
     font-size: 22px;
     &:hover {
